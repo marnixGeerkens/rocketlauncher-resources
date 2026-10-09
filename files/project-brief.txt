@@ -1,0 +1,9 @@
+Help me turn this project into a concrete brief.
+
+Outcome: [what should work]
+Audience: [who will use it]
+Current setup: [tools and existing files]
+Constraints: [budget, deadline, privacy and release limits]
+Evidence available: [links or non-sensitive examples]
+
+First separate confirmed facts from assumptions. Ask only questions that change the scope. Then give me: the smallest useful result, user steps, acceptance checks, dependencies, risks and a first implementation task. Do not invent integrations, statistics, customer claims or completed work. Identify what needs external verification. Do not execute or publish anything from this brief.

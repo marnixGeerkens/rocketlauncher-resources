@@ -1,0 +1,6 @@
+# Review this command before running it in your terminal.
+claude mcp add --transport http rocketlauncher https://rocketlauncher.ai/mcp
+
+# Inspect the connection in Claude Code with /mcp.
+# Disconnect when no longer needed:
+claude mcp remove rocketlauncher

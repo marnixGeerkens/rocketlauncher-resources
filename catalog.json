@@ -1,0 +1,553 @@
+{
+  "schemaVersion": 1,
+  "resources": [
+    {
+      "id": "rl-website-review",
+      "slug": "website-review-skill",
+      "platforms": [
+        "claude-code"
+      ],
+      "type": "skill",
+      "useCase": "website-quality",
+      "compatibility": "Claude Code project skill. Requires an existing website repository and its own browser/test tools.",
+      "sources": [
+        {
+          "url": "https://code.claude.com/docs/en/skills",
+          "title": "Claude Code skills documentation",
+          "author": "Anthropic",
+          "license": "Reference only; documentation is not redistributed."
+        }
+      ],
+      "download": {
+        "path": "/resources/files/website-review/SKILL.md",
+        "filename": "SKILL.md",
+        "content": "---\nname: website-review\ndescription: Review a website change for usability, accessibility and regressions before release.\n---\n\n# Website review\n\nRead the repository instructions and inspect the diff before changing files.\nIdentify the changed routes and their callers. Preserve unrelated work.\nStart the existing local preview using the repository's documented command.\nCheck a changed detail page as well as the homepage at desktop and narrow mobile widths.\nUse the keyboard to reach every changed control. Check visible focus, Escape and focus restoration for dialogs.\nFollow one successful flow and one failure or empty-result flow. Refresh a deep link.\nCheck the initial HTML for the page title, canonical, main content and structured data.\nRun the project's relevant tests. Report exact commands, observed results and unverified external behavior.\nDo not deploy, submit forms to real customers, spend money or change production without explicit authorization.\n"
+      },
+      "translations": {
+        "en": {
+          "title": "Review a website before release",
+          "summary": "A Claude Code skill for checking a website change on desktop and mobile, including keyboard use and failure states.",
+          "intro": "Use this when a website change looks finished but still needs a repeatable review. The skill asks your coding assistant to inspect the actual change, run the existing preview and record what it can prove. It does not install a browser or replace your repository rules.",
+          "steps": [
+            "Download SKILL.md and read its instructions before installing it.",
+            "Create .claude/skills/website-review/ in the project, then place SKILL.md in that folder. Do not overwrite an existing skill with the same name.",
+            "Open Claude Code in the project and invoke /website-review. Give it the changed route and the local preview command.",
+            "Review the report, fix confirmed defects and repeat the affected checks before release."
+          ],
+          "example": "Review /pricing after the navigation change. Use npm run preview, test 1440px and 360px widths, and report any checks you cannot run.",
+          "limitations": [
+            "The file is a review procedure, not an automated accessibility certification.",
+            "Browser and test access depend on your installed tools. A passing build does not prove a working user flow.",
+            "The downloaded instructions are in English. They do not authorize publication."
+          ],
+          "outcome": "You should receive findings with a route, reproduction steps, evidence and a clear list of checks that remain open.",
+          "compatibility": "Claude Code project skill. Requires an existing website repository and its own browser/test tools."
+        },
+        "nl": {
+          "title": "Controleer een website vóór publicatie",
+          "summary": "Een Claude Code-skill voor desktop, mobiel, toetsenbordbediening en foutgevallen.",
+          "intro": "Gebruik deze skill wanneer een websitewijziging klaar lijkt, maar nog gecontroleerd moet worden. Je codeassistent bekijkt de echte wijziging, start de bestaande preview en legt vast wat aantoonbaar werkt. De skill installeert geen browser en vervangt je projectregels niet.",
+          "steps": [
+            "Download SKILL.md en lees de instructies voordat je het bestand installeert.",
+            "Maak .claude/skills/website-review/ in je project en plaats SKILL.md daarin. Overschrijf geen bestaande skill met dezelfde naam.",
+            "Open Claude Code in het project en start /website-review. Geef de gewijzigde route en het lokale previewcommando mee.",
+            "Bekijk het verslag, herstel bevestigde fouten en herhaal de betrokken controles vóór publicatie."
+          ],
+          "example": "Controleer /pricing na de navigatiewijziging. Gebruik npm run preview, test op 1440px en 360px en vermeld welke controles niet uitvoerbaar zijn.",
+          "limitations": [
+            "Het bestand is een controleprocedure, geen toegankelijkheidscertificaat.",
+            "Browser- en testtoegang hangen af van je geïnstalleerde tools. Een geslaagde build bewijst geen werkende gebruikersflow.",
+            "De download bevat Engelse instructies en geeft geen toestemming om te publiceren."
+          ],
+          "outcome": "Je krijgt bevindingen met route, reproductiestappen, bewijs en een overzicht van openstaande controles.",
+          "compatibility": "Projectskill voor Claude Code. Vereist een bestaande websiterepository en de bijbehorende browser- en testtools."
+        }
+      },
+      "tutorial": {
+        "url": "/guides",
+        "title": "Website and implementation guides"
+      },
+      "version": "1.0.0",
+      "updated": "2026-10-09",
+      "author": "RocketLauncher",
+      "license": "MIT",
+      "verification": {
+        "status": "reviewed",
+        "date": "2026-10-09",
+        "details": "Original instructions reviewed and file structure validated locally. Client installation and account-specific execution are not certified."
+      },
+      "history": [
+        {
+          "version": "1.0.0",
+          "date": "2026-10-09",
+          "note": "First public resource edition."
+        }
+      ],
+      "university": "https://www.skool.com/rocketlauncher-university"
+    },
+    {
+      "id": "rl-codex-handoff",
+      "slug": "codex-project-handoff",
+      "platforms": [
+        "codex"
+      ],
+      "type": "agent-instructions",
+      "useCase": "development",
+      "compatibility": "Plain Markdown instructions for a Codex project. Merge into existing AGENTS.md after review; not a Claude plugin.",
+      "sources": [
+        {
+          "url": "https://developers.openai.com/codex/guides/agents-md",
+          "title": "OpenAI project instructions",
+          "author": "OpenAI",
+          "license": "Reference only."
+        }
+      ],
+      "download": {
+        "path": "/resources/files/codex-project-handoff.md",
+        "filename": "codex-project-handoff.md",
+        "content": "# Project handoff checklist\n\nBefore work, read AGENTS.md and the current handoff. Inspect git status and the active branch. Preserve uncommitted work.\n\nRecord the objective, current behavior, affected routes and files, relevant commands, and release boundary.\n\nImplement the smallest complete change using existing project patterns. Inspect callers before changing a shared interface.\n\nRun the appropriate local checks. Distinguish source review, unit tests, browser evidence, provider evidence and production behavior.\n\nAt handoff, record changed files, commands and results, known failures, next steps and rollback. Never record credentials, tokens or personal customer data.\n\nDo not claim completion while required checks remain unresolved. Do not publish or push to production without explicit authorization.\n"
+      },
+      "translations": {
+        "en": {
+          "title": "Give Codex a reliable project handoff",
+          "summary": "Reusable project instructions that preserve existing work and make the next coding session easier to verify.",
+          "intro": "A new coding session needs facts about the current project. This original instruction template helps you record scope, changed files, test evidence and release boundaries. It works as a reviewed section in project instructions or as a prompt alongside your existing handoff.",
+          "steps": [
+            "Download the Markdown template and compare it with your current AGENTS.md.",
+            "Merge only relevant instructions into the project file. Keep more specific security and release rules.",
+            "Write a short handoff with the current branch, unfinished work and exact verification commands.",
+            "Start a new session and ask it to confirm the handoff against the actual files before editing."
+          ],
+          "example": "Continue the search-filter fix on this branch. Preserve my uncommitted layout work. Read the handoff, reproduce the refresh bug, fix it and record the browser result.",
+          "limitations": [
+            "This file supplies instructions, not permissions or access to tools.",
+            "It does not make model output deterministic. Review code and test evidence.",
+            "Do not paste credentials or customer records into a handoff."
+          ],
+          "outcome": "The next session can identify the current state and run the same checks without guessing.",
+          "compatibility": "Plain Markdown instructions for a Codex project. Merge into existing AGENTS.md after review; not a Claude plugin."
+        },
+        "nl": {
+          "title": "Geef Codex een bruikbare projectoverdracht",
+          "summary": "Projectinstructies om bestaand werk te bewaren en de volgende codesessie controleerbaar te maken.",
+          "intro": "Een nieuwe codesessie heeft concrete projectinformatie nodig. Deze originele instructies helpen je scope, gewijzigde bestanden, testbewijs en publicatiegrenzen vast te leggen. Gebruik ze als nagekeken onderdeel van je projectinstructies of samen met je bestaande overdracht.",
+          "steps": [
+            "Download het Markdown-bestand en vergelijk het met je bestaande AGENTS.md.",
+            "Voeg alleen relevante instructies toe. Behoud specifiekere regels voor beveiliging en publicatie.",
+            "Schrijf een korte overdracht met branch, onvoltooid werk en exacte controlecommando's.",
+            "Vraag een nieuwe sessie de overdracht eerst aan de echte bestanden te toetsen."
+          ],
+          "example": "Ga verder met de zoekfilterfix op deze branch. Bewaar mijn onopgeslagen layoutwerk. Lees de overdracht, reproduceer de fout na verversen, herstel die en leg de browsertest vast.",
+          "limitations": [
+            "Dit bestand geeft instructies, geen rechten of toegang tot tools.",
+            "Modeluitvoer blijft variabel. Controleer de code en het testbewijs.",
+            "Neem geen wachtwoorden of klantgegevens op in een overdracht."
+          ],
+          "outcome": "De volgende sessie kan de actuele toestand herkennen en dezelfde controles uitvoeren.",
+          "compatibility": "Gewone Markdown-instructies voor een Codex-project. Voeg ze na controle samen met je bestaande AGENTS.md. Dit is geen Claude-plugin."
+        }
+      },
+      "version": "1.0.0",
+      "updated": "2026-10-09",
+      "author": "RocketLauncher",
+      "license": "MIT",
+      "verification": {
+        "status": "reviewed",
+        "date": "2026-10-09",
+        "details": "Original instructions reviewed and file structure validated locally. Client installation and account-specific execution are not certified."
+      },
+      "history": [
+        {
+          "version": "1.0.0",
+          "date": "2026-10-09",
+          "note": "First public resource edition."
+        }
+      ],
+      "university": "https://www.skool.com/rocketlauncher-university"
+    },
+    {
+      "id": "rl-project-brief",
+      "slug": "chatgpt-project-brief",
+      "platforms": [
+        "chatgpt",
+        "claude",
+        "codex"
+      ],
+      "type": "prompt",
+      "useCase": "planning",
+      "compatibility": "Plain-text prompt for ChatGPT, Claude or Codex. No connector, file access or execution capability is implied.",
+      "sources": [
+        {
+          "url": "https://help.openai.com/en/articles/10032626-prompt-engineering-best-practices-for-chatgpt",
+          "title": "ChatGPT prompting guidance",
+          "author": "OpenAI",
+          "license": "Reference only."
+        }
+      ],
+      "download": {
+        "path": "/resources/files/project-brief.txt",
+        "filename": "project-brief.txt",
+        "content": "Help me turn this project into a concrete brief.\n\nOutcome: [what should work]\nAudience: [who will use it]\nCurrent setup: [tools and existing files]\nConstraints: [budget, deadline, privacy and release limits]\nEvidence available: [links or non-sensitive examples]\n\nFirst separate confirmed facts from assumptions. Ask only questions that change the scope. Then give me: the smallest useful result, user steps, acceptance checks, dependencies, risks and a first implementation task. Do not invent integrations, statistics, customer claims or completed work. Identify what needs external verification. Do not execute or publish anything from this brief.\n"
+      },
+      "translations": {
+        "en": {
+          "title": "Turn an idea into a testable project brief",
+          "summary": "A copyable prompt for defining a useful result, user steps and acceptance checks before building.",
+          "intro": "Use this prompt when an idea is still too broad to implement. Fill in the five inputs with facts you can share. The assistant should separate assumptions from evidence and produce a brief you can evaluate, rather than claim that the project already works.",
+          "steps": [
+            "Replace every bracketed field with your outcome, audience, current tools, constraints and available evidence.",
+            "Paste the prompt into your chosen assistant. Leave out private customer data and credentials.",
+            "Answer questions that change the scope, then check the proposed acceptance criteria yourself.",
+            "Use the first implementation task in your coding tool or bring the brief to University for feedback."
+          ],
+          "example": "Outcome: visitors can filter my resource library and share the current filters. Audience: new builders. Current setup: React site. Constraints: no login, no paid services. Evidence: current route list.",
+          "limitations": [
+            "The same text can be used across the listed assistants, but their features and responses differ.",
+            "This prompt does not provide browser access, connectors or a project management integration.",
+            "A generated estimate is an assumption until checked against the actual work."
+          ],
+          "outcome": "A brief with a concrete result, user flow, acceptance checks and an explicit first task.",
+          "compatibility": "Plain-text prompt for ChatGPT, Claude or Codex. No connector, file access or execution capability is implied."
+        },
+        "nl": {
+          "title": "Maak van een idee een toetsbare projectbrief",
+          "summary": "Een kopieerbare prompt voor een concreet resultaat, gebruikersstappen en acceptatiecriteria.",
+          "intro": "Gebruik deze prompt wanneer je idee nog te breed is om te bouwen. Vul de vijf velden in met feiten die je mag delen. De assistent maakt onderscheid tussen aannames en bewijs en levert een brief die je kunt beoordelen.",
+          "steps": [
+            "Vervang alle velden tussen vierkante haken door je doel, doelgroep, tools, beperkingen en bewijs.",
+            "Plak de prompt in je gekozen assistent. Laat privégegevens en wachtwoorden weg.",
+            "Beantwoord vragen die de scope veranderen en beoordeel zelf de voorgestelde acceptatiecriteria.",
+            "Gebruik de eerste bouwtaak in je codetool of bespreek de brief in University."
+          ],
+          "example": "Doel: bezoekers filteren mijn resourcebibliotheek en delen hun filters. Doelgroep: beginnende bouwers. Bestaand: React-site. Grenzen: geen login of betaalde diensten. Bewijs: huidige routelijst.",
+          "limitations": [
+            "De tekst is bruikbaar in de genoemde assistenten, maar functies en antwoorden verschillen.",
+            "De prompt geeft geen browsertoegang, connectors of projectbeheerintegratie.",
+            "Een gegenereerde schatting blijft een aanname tot je deze toetst."
+          ],
+          "outcome": "Een brief met een concreet resultaat, gebruikersflow, acceptatiecriteria en een eerste taak.",
+          "compatibility": "Prompt in gewone tekst voor ChatGPT, Claude of Codex. De prompt geeft geen toegang tot connectors of bestanden en kan zelf geen acties uitvoeren."
+        },
+        "es": {
+          "title": "Convierte una idea en un proyecto comprobable",
+          "summary": "Un prompt para definir el resultado, los pasos del usuario y las pruebas de aceptación.",
+          "intro": "Usa este prompt cuando tu idea todavía sea demasiado amplia para empezar. Completa los cinco campos con información que puedas compartir. El asistente debe distinguir los hechos de las suposiciones y preparar un documento que puedas revisar.",
+          "steps": [
+            "Sustituye los campos entre corchetes por el objetivo, el público, las herramientas actuales, los límites y las pruebas disponibles.",
+            "Pega el prompt en tu asistente. No incluyas datos privados de clientes ni contraseñas.",
+            "Responde las preguntas que cambien el alcance y revisa los criterios de aceptación.",
+            "Lleva la primera tarea a tu herramienta de programación o pide comentarios en University."
+          ],
+          "example": "Objetivo: filtrar una biblioteca de recursos y compartir los filtros. Público: principiantes. Herramientas: sitio React. Límites: sin registro ni servicios de pago. Pruebas: lista de rutas.",
+          "limitations": [
+            "El texto sirve para los asistentes indicados, pero sus funciones y respuestas son diferentes.",
+            "El prompt no ofrece acceso al navegador, conectores ni integraciones.",
+            "Una estimación generada sigue siendo una suposición hasta comprobarla."
+          ],
+          "outcome": "Un documento con un resultado concreto, un recorrido de usuario, pruebas de aceptación y una primera tarea.",
+          "compatibility": "Prompt en texto simple para ChatGPT, Claude o Codex. No concede acceso a conectores ni archivos y no puede ejecutar acciones por sí mismo."
+        },
+        "pt": {
+          "title": "Transforme uma ideia em um projeto verificável",
+          "summary": "Um prompt para definir o resultado, as etapas do usuário e os critérios de aceitação.",
+          "intro": "Use este prompt quando a ideia ainda estiver ampla demais para começar. Preencha os cinco campos com informações que você possa compartilhar. O assistente deve separar fatos de suposições e produzir um documento que você consiga avaliar.",
+          "steps": [
+            "Substitua os campos entre colchetes pelo objetivo, público, ferramentas atuais, limites e evidências disponíveis.",
+            "Cole o prompt no assistente escolhido. Não inclua dados privados de clientes nem senhas.",
+            "Responda às perguntas que mudem o escopo e confira os critérios de aceitação.",
+            "Leve a primeira tarefa para sua ferramenta de programação ou peça feedback na University."
+          ],
+          "example": "Objetivo: filtrar uma biblioteca de recursos e compartilhar os filtros. Público: iniciantes. Ferramentas: site React. Limites: sem login nem serviços pagos. Evidências: lista de rotas.",
+          "limitations": [
+            "O texto funciona nos assistentes indicados, mas as funções e respostas variam.",
+            "O prompt não fornece acesso ao navegador, conectores ou integrações.",
+            "Uma estimativa gerada continua sendo uma suposição até ser verificada."
+          ],
+          "outcome": "Um documento com resultado concreto, fluxo do usuário, critérios de aceitação e uma primeira tarefa.",
+          "compatibility": "Prompt em texto simples para ChatGPT, Claude ou Codex. Não concede acesso a conectores ou arquivos e não executa ações por conta própria."
+        }
+      },
+      "version": "1.0.0",
+      "updated": "2026-10-09",
+      "author": "RocketLauncher",
+      "license": "MIT",
+      "verification": {
+        "status": "reviewed",
+        "date": "2026-10-09",
+        "details": "Original instructions reviewed and file structure validated locally. Client installation and account-specific execution are not certified."
+      },
+      "history": [
+        {
+          "version": "1.0.0",
+          "date": "2026-10-09",
+          "note": "First public resource edition."
+        }
+      ],
+      "university": "https://www.skool.com/rocketlauncher-university"
+    },
+    {
+      "id": "rl-mcp-config",
+      "slug": "rocketlauncher-mcp-connection",
+      "platforms": [
+        "claude-code"
+      ],
+      "type": "mcp",
+      "useCase": "website-quality",
+      "compatibility": "Claude Code HTTP MCP connection. Other clients require their own configuration. No ChatGPT compatibility is claimed.",
+      "sources": [
+        {
+          "url": "https://rocketlauncher.ai/mcp-server",
+          "title": "RocketLauncher scanner connection guide",
+          "author": "RocketLauncher",
+          "license": "Reference only."
+        },
+        {
+          "url": "https://code.claude.com/docs/en/mcp",
+          "title": "Claude Code MCP connections",
+          "author": "Anthropic",
+          "license": "Reference only."
+        }
+      ],
+      "download": {
+        "path": "/resources/files/rocketlauncher-mcp.txt",
+        "filename": "rocketlauncher-mcp.txt",
+        "content": "# Review this command before running it in your terminal.\nclaude mcp add --transport http rocketlauncher https://rocketlauncher.ai/mcp\n\n# Inspect the connection in Claude Code with /mcp.\n# Disconnect when no longer needed:\nclaude mcp remove rocketlauncher\n"
+      },
+      "translations": {
+        "en": {
+          "title": "Connect the RocketLauncher scanner to Claude Code",
+          "summary": "A reviewed connection command for the existing public website scanner, with a disconnect procedure.",
+          "intro": "The RocketLauncher scanner exposes website-audit tools through an HTTP MCP endpoint. This resource contains the connection command, not a new server. Use it only for public websites you are authorized to inspect and review the tool request before allowing an audit.",
+          "steps": [
+            "Install and sign in to Claude Code using Anthropic's current instructions.",
+            "Download or copy the command file and read it. Run only the claude mcp add command in your terminal.",
+            "Open Claude Code and use /mcp to inspect the connection and available tools.",
+            "Try a public website you own. If the server is unavailable, use the existing website scanner page or retry later. Remove the connection with claude mcp remove rocketlauncher."
+          ],
+          "example": "Inspect the public homepage of my business for missing SEO metadata. Explain the evidence and limits. Do not submit forms or contact anyone.",
+          "limitations": [
+            "The configuration format is specific to Claude Code; do not paste it into another client's JSON settings.",
+            "A reachable endpoint does not prove every audit tool or every target will succeed.",
+            "Requests send the target website address to RocketLauncher. Do not include private URLs or tokens."
+          ],
+          "outcome": "Claude Code lists the connection and, when the service is available, can request a website audit.",
+          "compatibility": "Claude Code HTTP MCP connection. Other clients require their own configuration. No ChatGPT compatibility is claimed."
+        },
+        "nl": {
+          "title": "Verbind de RocketLauncher-scanner met Claude Code",
+          "summary": "Een verbindingscommando voor de bestaande websitescanner, inclusief verwijderen van de koppeling.",
+          "intro": "De RocketLauncher-scanner biedt websitecontroles via een HTTP MCP-endpoint. Dit bestand bevat het verbindingscommando, geen nieuwe server. Gebruik het alleen voor openbare websites die je mag controleren en bekijk de toolaanvraag vóór uitvoering.",
+          "steps": [
+            "Installeer Claude Code en meld je aan volgens de actuele instructies van Anthropic.",
+            "Download of kopieer het bestand en lees het. Voer alleen het claude mcp add-commando uit in je terminal.",
+            "Open Claude Code en gebruik /mcp om de verbinding en beschikbare tools te bekijken.",
+            "Probeer een openbare website die je bezit. Gebruik bij uitval de bestaande scannerpagina of probeer later opnieuw. Verwijder de koppeling met claude mcp remove rocketlauncher."
+          ],
+          "example": "Controleer de openbare homepage van mijn bedrijf op ontbrekende SEO-metadata. Leg bewijs en beperkingen uit. Verstuur geen formulieren of berichten.",
+          "limitations": [
+            "Dit formaat is bedoeld voor Claude Code, niet voor de JSON-instellingen van andere clients.",
+            "Een bereikbaar endpoint bewijst niet dat iedere audit of doelwebsite werkt.",
+            "Het websiteadres gaat naar RocketLauncher. Voeg geen privé-URL's of tokens toe."
+          ],
+          "outcome": "Claude Code toont de koppeling en kan bij een beschikbare dienst een websitecontrole aanvragen.",
+          "compatibility": "HTTP-MCP-verbinding voor Claude Code. Andere clients vereisen hun eigen configuratie. Compatibiliteit met ChatGPT is niet bevestigd."
+        }
+      },
+      "tutorial": {
+        "url": "/mcp-server",
+        "title": "Full scanner connection guide"
+      },
+      "version": "1.0.0",
+      "updated": "2026-10-09",
+      "author": "RocketLauncher",
+      "license": "MIT",
+      "verification": {
+        "status": "reviewed",
+        "date": "2026-10-09",
+        "details": "Original instructions reviewed and file structure validated locally. Client installation and account-specific execution are not certified."
+      },
+      "history": [
+        {
+          "version": "1.0.0",
+          "date": "2026-10-09",
+          "note": "First public resource edition."
+        }
+      ],
+      "university": "https://www.skool.com/rocketlauncher-university"
+    },
+    {
+      "id": "rl-ghl-workflow-check",
+      "slug": "ghl-workflow-test-plan",
+      "platforms": [
+        "gohighlevel"
+      ],
+      "type": "workflow",
+      "useCase": "lead-follow-up",
+      "compatibility": "Manual GoHighLevel test plan. Not an importable snapshot or workflow JSON. Use a test sub-account and controlled contacts.",
+      "sources": [
+        {
+          "url": "https://help.gohighlevel.com/support/solutions",
+          "title": "HighLevel help center",
+          "author": "HighLevel",
+          "license": "Reference only."
+        }
+      ],
+      "download": {
+        "path": "/resources/files/ghl-workflow-test-plan.md",
+        "filename": "ghl-workflow-test-plan.md",
+        "content": "# GoHighLevel workflow test plan\n\nWorkflow name:\nOwner:\nAccount and version/date:\nTrigger and filters:\nExpected actions:\nAllowed test contacts:\nStop condition:\n\n## Before activation\n- Duplicate or export the current configuration where supported.\n- Keep the candidate workflow unpublished while checking conditions.\n- Confirm communication consent and suppression rules.\n- Use your own controlled test contact and phone/email destination.\n\n## Test cases\n1. Matching trigger: expected action happens once.\n2. Non-matching trigger: no action happens.\n3. Repeated trigger: no unintended duplicate message.\n4. Opt-out or suppression: no outbound communication.\n5. Missing field: safe fallback or an explicit stop.\n6. Failure: inspect execution history and record the error.\n\n## Evidence and release\nRecord time, anonymized test case, expected result and observed result.\nDo not publish until the owner approves the results.\nRollback: disable the candidate and restore the recorded prior configuration. Check for actions already queued; disabling does not undo a sent message.\n"
+      },
+      "translations": {
+        "en": {
+          "title": "Test a GoHighLevel workflow before activation",
+          "summary": "A downloadable test plan for triggers, duplicate messages, opt-outs and rollback.",
+          "intro": "Use this worksheet before activating a lead-follow-up workflow. It helps you check the trigger, actions and stop conditions with contacts you control. It is a manual test plan, not an importable snapshot, and it does not send messages.",
+          "steps": [
+            "Download the worksheet and record the workflow name, owner, current configuration and expected actions.",
+            "Keep the candidate unpublished. Use a test sub-account where possible and only destinations you control.",
+            "Run each relevant case, inspect execution history and record expected versus observed results without customer data.",
+            "Get approval before activation. Keep the prior configuration and review queued actions if you need to roll back."
+          ],
+          "example": "A missed-call follow-up should create one intended action for a matching test contact, do nothing for an excluded contact and avoid duplicate messages after a repeated event.",
+          "limitations": [
+            "Your HighLevel account features, phone setup and regional requirements affect the actual workflow.",
+            "This checklist does not establish legal permission to contact someone.",
+            "Disabling a workflow cannot recall messages already sent."
+          ],
+          "outcome": "A reviewable test record with matching, excluded, repeated, suppressed and failed cases.",
+          "compatibility": "Manual GoHighLevel test plan. Not an importable snapshot or workflow JSON. Use a test sub-account and controlled contacts."
+        },
+        "nl": {
+          "title": "Test een GoHighLevel-workflow vóór activatie",
+          "summary": "Een downloadbaar testplan voor triggers, dubbele berichten, afmeldingen en herstel.",
+          "intro": "Gebruik dit werkblad vóór je een workflow voor leadopvolging activeert. Controleer trigger, acties en stopvoorwaarden met contacten die je zelf beheert. Dit is een handmatig testplan, geen importeerbare snapshot. Het bestand verstuurt niets.",
+          "steps": [
+            "Download het werkblad en noteer naam, eigenaar, huidige configuratie en verwachte acties.",
+            "Laat de kandidaat ongepubliceerd. Gebruik waar mogelijk een testsubaccount en alleen eigen testbestemmingen.",
+            "Voer relevante gevallen uit, bekijk de uitvoergeschiedenis en noteer verwachting en resultaat zonder klantgegevens.",
+            "Vraag akkoord vóór activatie. Bewaar de vorige configuratie en controleer geplande acties bij herstel."
+          ],
+          "example": "Opvolging van een gemiste oproep geeft één bedoelde actie voor een passend testcontact, geen actie voor een uitgesloten contact en geen dubbele berichten na herhaling.",
+          "limitations": [
+            "Accountfuncties, telefonie en regionale vereisten beïnvloeden de echte workflow.",
+            "Deze checklist bewijst niet dat je iemand wettelijk mag contacteren.",
+            "Een uitgeschakelde workflow haalt verstuurde berichten niet terug."
+          ],
+          "outcome": "Een controleerbaar testverslag met passende, uitgesloten, herhaalde, onderdrukte en mislukte gevallen.",
+          "compatibility": "Handmatig testplan voor GoHighLevel. Geen importeerbare snapshot of workflow-JSON. Gebruik een testsubaccount en testcontacten die je zelf beheert."
+        }
+      },
+      "tutorial": {
+        "url": "/guides/missed-call-text-back",
+        "title": "Missed-call text-back guide"
+      },
+      "video": {
+        "url": "/tutorials/videos",
+        "title": "HighLevel video walkthroughs"
+      },
+      "version": "1.0.0",
+      "updated": "2026-10-09",
+      "author": "RocketLauncher",
+      "license": "MIT",
+      "verification": {
+        "status": "reviewed",
+        "date": "2026-10-09",
+        "details": "Original instructions reviewed and file structure validated locally. Client installation and account-specific execution are not certified."
+      },
+      "history": [
+        {
+          "version": "1.0.0",
+          "date": "2026-10-09",
+          "note": "First public resource edition."
+        }
+      ],
+      "university": "https://www.skool.com/rocketlauncher-university"
+    },
+    {
+      "id": "rl-plugin-review",
+      "slug": "claude-plugin-review-checklist",
+      "platforms": [
+        "claude-code"
+      ],
+      "type": "plugin-guide",
+      "useCase": "development",
+      "compatibility": "Manual review checklist for Claude Code plugins and extensions. Does not install a plugin or execute its hooks.",
+      "sources": [
+        {
+          "url": "https://code.claude.com/docs/en/plugins",
+          "title": "Claude Code plugin documentation",
+          "author": "Anthropic",
+          "license": "Reference only."
+        },
+        {
+          "url": "https://github.com/davila7/claude-code-templates",
+          "title": "Claude Code Templates source",
+          "author": "davila7 and contributors",
+          "license": "External repository; verify each component's license before reuse."
+        }
+      ],
+      "download": {
+        "path": "/resources/files/plugin-review.md",
+        "filename": "plugin-review.md",
+        "content": "# Review a Claude Code plugin\n\nSource URL:\nAuthor:\nCommit or release:\nLicense:\nSupported client/version:\n\n1. Read the plugin manifest and the exact pinned source.\n2. List skills, commands, agents, MCP servers and hooks separately.\n3. Inspect hook commands and installation scripts without running them.\n4. Record network destinations, environment variables and requested permissions.\n5. Reject unexplained secret access, destructive commands or untrusted downloads.\n6. Test the approved component in a disposable project with no production credentials.\n7. Record installation and removal steps from the source documentation.\n8. Keep the source version and review result. A newer release needs another review.\n\nDo not treat a marketplace listing, download count or this checklist as a security guarantee.\n"
+      },
+      "translations": {
+        "en": {
+          "title": "Review a Claude Code plugin before installing it",
+          "summary": "Check source, license, hooks and permissions before adding an extension to your coding environment.",
+          "intro": "A plugin can package skills, agents, commands, hooks and MCP connections. Those parts do different things. This original checklist helps you inspect an exact source version before deciding whether to install it. The linked template library is an external reference, not a RocketLauncher endorsement of every component.",
+          "steps": [
+            "Choose the exact source repository and record a commit or release instead of reviewing an unspecified latest version.",
+            "Read the manifest and inspect each hook, command and dependency without executing it.",
+            "Check the license, supported client and requested access. Stop if the purpose of a permission or script is unclear.",
+            "After review, follow the author's installation and removal instructions in a disposable project, then record the result."
+          ],
+          "example": "Review a plugin that runs a formatter after edits. Confirm which files it can modify, which command runs, whether it downloads anything and how to disable the hook.",
+          "limitations": [
+            "Static review cannot prove that an extension is safe in every environment.",
+            "A Claude Code plugin is not automatically a Codex skill or a ChatGPT connector.",
+            "External resources remain on their original sites; we do not redistribute their code."
+          ],
+          "outcome": "A source-linked review with a pinned version, access requirements and a tested removal plan.",
+          "compatibility": "Manual review checklist for Claude Code plugins and extensions. Does not install a plugin or execute its hooks."
+        },
+        "nl": {
+          "title": "Controleer een Claude Code-plugin vóór installatie",
+          "summary": "Bekijk bron, licentie, hooks en rechten voordat je een uitbreiding installeert.",
+          "intro": "Een plugin kan skills, agents, commands, hooks en MCP-koppelingen bevatten. Die onderdelen werken verschillend. Deze originele checklist helpt je een exacte bronversie te beoordelen. De gelinkte templatebibliotheek is een externe referentie, geen goedkeuring van ieder onderdeel.",
+          "steps": [
+            "Kies de bronrepository en noteer een commit of release in plaats van een onbepaalde laatste versie.",
+            "Lees het manifest en inspecteer iedere hook, opdracht en afhankelijkheid zonder deze uit te voeren.",
+            "Controleer licentie, ondersteunde client en toegang. Stop als een recht of script onduidelijk is.",
+            "Volg na beoordeling de installatie- en verwijderinstructies in een wegwerpproject en leg het resultaat vast."
+          ],
+          "example": "Controleer een plugin die na wijzigingen een formatter start. Welke bestanden mogen veranderen, welk commando draait, wordt er iets gedownload en hoe schakel je de hook uit?",
+          "limitations": [
+            "Broncodecontrole bewijst niet dat een uitbreiding in elke omgeving veilig is.",
+            "Een Claude Code-plugin is niet automatisch een Codex-skill of ChatGPT-connector.",
+            "Externe bestanden blijven bij de oorspronkelijke bron. We verspreiden hun code niet."
+          ],
+          "outcome": "Een brongebonden beoordeling met vaste versie, toegangsvereisten en een getest verwijderpad.",
+          "compatibility": "Handmatige controlelijst voor Claude Code-plugins en uitbreidingen. De lijst installeert geen plugin en voert geen hooks uit."
+        }
+      },
+      "version": "1.0.0",
+      "updated": "2026-10-09",
+      "author": "RocketLauncher",
+      "license": "MIT",
+      "verification": {
+        "status": "reviewed",
+        "date": "2026-10-09",
+        "details": "Original instructions reviewed and file structure validated locally. Client installation and account-specific execution are not certified."
+      },
+      "history": [
+        {
+          "version": "1.0.0",
+          "date": "2026-10-09",
+          "note": "First public resource edition."
+        }
+      ],
+      "university": "https://www.skool.com/rocketlauncher-university"
+    }
+  ]
+}
