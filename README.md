@@ -1,6 +1,6 @@
 # RocketLauncher resources
 
-Practical, original instructions for Claude Code, Codex, ChatGPT and GoHighLevel. Discover the resources and read their complete guides at https://rocketlauncher.ai/resources. Dutch guides are available at https://rocketlauncher.ai/nl/resources. Available languages are declared per resource; no missing translation is implied.
+Practical, original instructions for Claude Code, Codex, ChatGPT and GoHighLevel. Complete guides are available now in catalog.json, including the declared translations for each resource. Website integration at rocketlauncher.ai/resources and rocketlauncher.ai/nl/resources is prepared separately and is not a claim that those routes are deployed. No missing translation is implied.
 
 Individual files are free to read, copy and download without an account. RocketLauncher University offers guided projects, feedback, challenges and community support at https://www.skool.com/rocketlauncher-university. A resource download does not join the community.
 
